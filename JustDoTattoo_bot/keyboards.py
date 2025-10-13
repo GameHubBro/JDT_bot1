@@ -10,7 +10,7 @@ main_menu = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton(text="🏙️ Студии и мастера"),
-            KeyboardButton(text="📖 Полезное про тату"),
+            KeyboardButton(text="📚 Полезное про тату"),
         ],
     ],
     resize_keyboard=True
