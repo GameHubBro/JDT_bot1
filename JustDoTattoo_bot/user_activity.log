@@ -1,0 +1,217 @@
+2025-10-10 18:11:01,693 | INFO | Start polling
+2025-10-10 18:11:01,733 | INFO | Run polling for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-10 18:11:11,943 | INFO | Update id=52728307 is handled. Duration 171 ms by bot id=8125363291
+2025-10-10 18:11:14,178 | INFO | User 689763103 (@mtk_mazprom): Запустил калькулятор тату
+2025-10-10 18:11:14,421 | INFO | Update id=52728308 is handled. Duration 233 ms by bot id=8125363291
+2025-10-10 18:11:16,336 | INFO | User 689763103 (@mtk_mazprom): Выбрал стиль: Надпись
+2025-10-10 18:11:16,502 | INFO | Update id=52728309 is handled. Duration 172 ms by bot id=8125363291
+2025-10-10 18:11:17,741 | INFO | User 689763103 (@mtk_mazprom): Выбрал размер: до 3см
+2025-10-10 18:11:17,829 | INFO | Update id=52728310 is handled. Duration 77 ms by bot id=8125363291
+2025-10-10 18:11:19,279 | INFO | User 689763103 (@mtk_mazprom): Выбрал цвета: один цвет
+2025-10-10 18:11:19,370 | INFO | Update id=52728311 is handled. Duration 93 ms by bot id=8125363291
+2025-10-10 18:11:23,044 | INFO | Update id=52728312 is not handled. Duration 0 ms by bot id=8125363291
+2025-10-10 18:11:25,315 | INFO | User 689763103 (@mtk_mazprom): Перешёл в Галерею
+2025-10-10 18:11:25,437 | INFO | Update id=52728313 is handled. Duration 125 ms by bot id=8125363291
+2025-10-10 18:11:27,442 | INFO | Update id=52728314 is not handled. Duration 15 ms by bot id=8125363291
+2025-10-10 18:11:27,442 | ERROR | Cause exception while process update id=52728314 by bot id=8125363291
+NameError: name 'logging' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\handlers\studios.py", line 18, in studios_handler
+    logging.info(f"[studios] handled message from {message.from_user.id}: {message.text!r}")
+    ^^^^^^^
+NameError: name 'logging' is not defined. Did you forget to import 'logging'
+2025-10-10 18:11:30,432 | INFO | User 689763103 (@mtk_mazprom): Перешёл в статьи
+2025-10-10 18:11:30,514 | INFO | Update id=52728315 is handled. Duration 77 ms by bot id=8125363291
+2025-10-10 18:11:33,187 | INFO | Update id=52728316 is not handled. Duration 0 ms by bot id=8125363291
+2025-10-10 18:11:34,874 | INFO | User 689763103 (@mtk_mazprom): Перешёл в Галерею
+2025-10-10 18:11:34,949 | INFO | Update id=52728317 is handled. Duration 77 ms by bot id=8125363291
+2025-10-10 18:11:36,391 | INFO | Update id=52728318 is not handled. Duration 0 ms by bot id=8125363291
+2025-10-10 18:11:36,391 | ERROR | Cause exception while process update id=52728318 by bot id=8125363291
+NameError: name 'logging' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Staza\PycharmProjects\JustDoTattoo_bot\handlers\studios.py", line 18, in studios_handler
+    logging.info(f"[studios] handled message from {message.from_user.id}: {message.text!r}")
+    ^^^^^^^
+NameError: name 'logging' is not defined. Did you forget to import 'logging'
+2025-10-10 18:11:38,168 | INFO | Update id=52728319 is not handled. Duration 0 ms by bot id=8125363291
+2025-10-10 18:15:58,164 | INFO | Polling stopped
+2025-10-10 18:15:58,166 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-10 18:15:58,166 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-10 18:15:58,429 | INFO | Polling stopped for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-10 18:16:04,042 | INFO | Start polling
+2025-10-10 18:16:04,090 | INFO | Run polling for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-10 18:16:10,734 | INFO | Update id=52728320 is handled. Duration 188 ms by bot id=8125363291
+2025-10-10 18:16:12,110 | INFO | Update id=52728321 is handled. Duration 172 ms by bot id=8125363291
+2025-10-10 18:16:13,566 | INFO | Update id=52728322 is handled. Duration 202 ms by bot id=8125363291
+2025-10-10 18:16:15,007 | INFO | Update id=52728323 is handled. Duration 108 ms by bot id=8125363291
+2025-10-10 18:16:16,128 | INFO | Update id=52728324 is handled. Duration 140 ms by bot id=8125363291
+2025-10-10 18:16:19,070 | INFO | Update id=52728325 is handled. Duration 171 ms by bot id=8125363291
+2025-10-10 18:16:20,937 | INFO | User 689763103 (@mtk_mazprom): Перешёл в Галерею
+2025-10-10 18:16:21,113 | INFO | Update id=52728326 is handled. Duration 187 ms by bot id=8125363291
+2025-10-10 18:16:22,599 | INFO | [studios] handled message from 689763103: '🏢 Студии и мастера'
+2025-10-10 18:16:22,691 | INFO | Update id=52728327 is handled. Duration 93 ms by bot id=8125363291
+2025-10-10 18:16:24,216 | INFO | User 689763103 (@mtk_mazprom): Перешёл в статьи
+2025-10-10 18:16:24,301 | INFO | Update id=52728328 is handled. Duration 94 ms by bot id=8125363291
+2025-10-10 18:16:33,103 | INFO | Update id=52728329 is handled. Duration 109 ms by bot id=8125363291
+2025-10-10 18:16:35,543 | INFO | Update id=52728330 is handled. Duration 139 ms by bot id=8125363291
+2025-10-10 18:16:37,454 | INFO | Update id=52728331 is handled. Duration 109 ms by bot id=8125363291
+2025-10-10 18:16:38,817 | INFO | Update id=52728332 is handled. Duration 109 ms by bot id=8125363291
+2025-10-10 18:17:52,275 | INFO | Update id=52728333 is handled. Duration 141 ms by bot id=8125363291
+2025-10-10 18:17:55,380 | INFO | Update id=52728334 is handled. Duration 125 ms by bot id=8125363291
+2025-10-10 18:17:58,454 | INFO | Update id=52728335 is handled. Duration 93 ms by bot id=8125363291
+2025-10-10 18:18:00,512 | INFO | Update id=52728336 is handled. Duration 125 ms by bot id=8125363291
+2025-10-10 18:20:31,494 | INFO | Polling stopped
+2025-10-10 18:20:31,495 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-10 18:20:31,495 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-10 18:20:31,751 | INFO | Polling stopped for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-11 18:15:34,874 | INFO | Start polling
+2025-10-11 18:15:34,915 | INFO | Run polling for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-11 18:15:41,141 | INFO | Update id=52728337 is handled. Duration 171 ms by bot id=8125363291
+2025-10-11 18:15:42,511 | INFO | Update id=52728338 is handled. Duration 186 ms by bot id=8125363291
+2025-10-11 18:15:44,149 | INFO | Update id=52728339 is handled. Duration 234 ms by bot id=8125363291
+2025-10-11 18:15:45,574 | INFO | Update id=52728340 is handled. Duration 109 ms by bot id=8125363291
+2025-10-11 18:15:46,788 | INFO | Update id=52728341 is handled. Duration 94 ms by bot id=8125363291
+2025-10-11 18:15:53,160 | INFO | User 689763103 (@mtk_mazprom): Перешёл в Галерею
+2025-10-11 18:15:53,257 | INFO | Update id=52728342 is handled. Duration 94 ms by bot id=8125363291
+2025-10-11 18:15:54,995 | INFO | Update id=52728343 is handled. Duration 94 ms by bot id=8125363291
+2025-10-11 18:15:56,381 | INFO | [studios] handled message from 689763103: '🏢 Студии и мастера'
+2025-10-11 18:15:56,465 | INFO | Update id=52728344 is handled. Duration 109 ms by bot id=8125363291
+2025-10-11 18:16:01,256 | INFO | User 689763103 (@mtk_mazprom): Перешёл в статьи
+2025-10-11 18:16:01,394 | INFO | Update id=52728345 is handled. Duration 155 ms by bot id=8125363291
+2025-10-11 19:27:52,237 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-11 19:27:52,237 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-11 19:27:53,245 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+2025-10-11 19:27:53,245 | WARNING | Sleep for 1.235527 seconds and try again... (tryings = 1, bot id = 8125363291)
+2025-10-11 19:27:54,485 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+2025-10-11 19:27:54,485 | WARNING | Sleep for 1.533589 seconds and try again... (tryings = 2, bot id = 8125363291)
+2025-10-11 19:27:56,026 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+2025-10-11 19:27:56,027 | WARNING | Sleep for 2.131367 seconds and try again... (tryings = 3, bot id = 8125363291)
+2025-10-12 00:50:33,210 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorDNSError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+2025-10-12 00:50:33,210 | WARNING | Sleep for 2.772866 seconds and try again... (tryings = 4, bot id = 8125363291)
+2025-10-12 21:31:43,150 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-12 21:31:43,150 | WARNING | Sleep for 3.659470 seconds and try again... (tryings = 5, bot id = 8125363291)
+2025-10-12 21:31:57,093 | INFO | Connection established (tryings = 6, bot id = 8125363291)
+2025-10-12 21:34:52,674 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [WinError 1236] Подключение к сети было разорвано локальной системой
+2025-10-12 21:34:52,674 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-12 21:35:03,875 | INFO | Connection established (tryings = 1, bot id = 8125363291)
+2025-10-12 22:12:57,540 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-12 22:12:57,541 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-12 22:12:58,550 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Сетевая папка недоступна. За информацией о разрешении проблем в сети обратитесь к справочной системе Windows]
+2025-10-12 22:12:58,550 | WARNING | Sleep for 1.227989 seconds and try again... (tryings = 1, bot id = 8125363291)
+2025-10-12 22:12:59,802 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Сетевая папка недоступна. За информацией о разрешении проблем в сети обратитесь к справочной системе Windows]
+2025-10-12 22:12:59,803 | WARNING | Sleep for 1.537620 seconds and try again... (tryings = 2, bot id = 8125363291)
+2025-10-12 22:13:01,350 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Сетевая папка недоступна. За информацией о разрешении проблем в сети обратитесь к справочной системе Windows]
+2025-10-12 22:13:01,351 | WARNING | Sleep for 1.848772 seconds and try again... (tryings = 3, bot id = 8125363291)
+2025-10-12 22:25:57,119 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Сетевая папка недоступна. За информацией о разрешении проблем в сети обратитесь к справочной системе Windows]
+2025-10-12 22:25:57,119 | WARNING | Sleep for 2.382990 seconds and try again... (tryings = 4, bot id = 8125363291)
+2025-10-12 22:26:09,688 | INFO | Connection established (tryings = 5, bot id = 8125363291)
+2025-10-12 22:46:36,721 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-10-12 22:46:36,722 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-12 22:46:48,044 | INFO | Connection established (tryings = 1, bot id = 8125363291)
+2025-10-12 22:59:35,463 | INFO | Polling stopped
+2025-10-12 22:59:35,466 | ERROR | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-10-12 22:59:35,466 | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8125363291)
+2025-10-12 22:59:35,728 | INFO | Polling stopped for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-13 15:41:19,187 | INFO | Start polling
+2025-10-13 15:41:19,235 | INFO | Run polling for bot @justdotattoo_bot id=8125363291 - 'JustDoTattoo_bot'
+2025-10-13 15:41:19,484 | INFO | Update id=52728346 is handled. Duration 187 ms by bot id=8125363291
+2025-10-13 15:41:28,836 | INFO | Update id=52728347 is handled. Duration 171 ms by bot id=8125363291
+2025-10-13 15:41:32,427 | INFO | Update id=52728348 is handled. Duration 202 ms by bot id=8125363291
+2025-10-13 15:41:35,558 | INFO | Update id=52728349 is handled. Duration 108 ms by bot id=8125363291
+2025-10-13 15:41:36,929 | INFO | Update id=52728350 is handled. Duration 77 ms by bot id=8125363291
