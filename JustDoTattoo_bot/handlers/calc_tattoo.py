@@ -228,6 +228,7 @@ async def make_order(message: types.Message, state: FSMContext):
     await state.clear()
     await message.answer(
         "Чтобы оформить заказ, перейди по ссылке 👇\n"
-        "https://justdotattoo.ru/orders/new\n\n"
+        "https://justdotattoo.ru/orders/\n\n"
         "или просто отправь сюда фото зоны, где хочешь тату, и мы поможем подобрать мастера 🔥"
     )
+
