@@ -1,11 +1,11 @@
-from aiogram import Router, F, types
+# handlers/calc_tattoo.py
+from aiogram import Router
+from aiogram import types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types.input_file import FSInputFile
 from math import ceil
-
-from logger_utils import log_user_action  # если не нужен лог, можно убрать
 
 router = Router()
 
@@ -15,7 +15,7 @@ class TattooCalc(StatesGroup):
     waiting_for_size = State()
     waiting_for_colors = State()
 
-# --- Клавиатуры ---
+# --- Клавиатуры (можешь импортировать из keyboards.py, но для независимости дублирую тексты) ---
 style_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="Не знаю")],
@@ -48,7 +48,7 @@ colors_kb = ReplyKeyboardMarkup(
 final_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="💰 Рассчитать снова"), KeyboardButton(text="🖊 Сделать тату")],
-        [KeyboardButton(text="🎨 Галерея тату"), KeyboardButton(text="🏢 Студии и мастера")],
+        [KeyboardButton(text="🎨 Галерея тату"), KeyboardButton(text="🏙️ Студии и мастера")],
         [KeyboardButton(text="📚 Полезное про тату")],
     ],
     resize_keyboard=True
@@ -85,54 +85,124 @@ COLOR_COEFF = {
 BASE_PRICE = 3000  # базовая цена
 
 # --- Обработчики ---
-@router.message(F.text == "💰 Рассчитать тату")
+@router.message(lambda m: m.text and m.text.strip() == "💰 Рассчитать тату")
 async def start_calc(message: types.Message, state: FSMContext):
     await state.clear()
-    # log_user_action(message.from_user.id, message.from_user.username, "Запустил калькулятор тату")
     photo = FSInputFile("images/style_example.jpg")
     await message.answer_photo(photo, caption="🎨 Выберите стиль татуировки:", reply_markup=style_kb)
     await state.set_state(TattooCalc.waiting_for_style)
 
+
 @router.message(TattooCalc.waiting_for_style)
 async def choose_style(message: types.Message, state: FSMContext):
-    style = message.text.strip()
+    text = (message.text or "").strip()
+
+    # Если пользователь нажал одну из кнопок главного меню — прерываем расчёт и делегируем
+    if text in ("🎨 Галерея тату", "📚 Полезное про тату", "🏙️ Студии и мастера", "💰 Рассчитать тату"):
+        # Сбрасываем своё состояние
+        await state.clear()
+        # импортируем соответствующий модуль локально и вызываем его хендлер
+        if text == "🎨 Галерея тату":
+            from handlers import gallery as gallery_mod
+            await gallery_mod.gallery(message, state)
+            return
+        if text == "📚 Полезное про тату":
+            from handlers import articles as articles_mod
+            await articles_mod.articles_from_menu(message, state)
+            return
+        if text == "🏙️ Студии и мастера":
+            from handlers import studios as studios_mod
+            # studios handler expects message only; call with state to be safe
+            await studios_mod.studios_handler(message, state)
+            return
+        if text == "💰 Рассчитать тату":
+            # уже в калькуляторе — перезапустим
+            await start_calc(message, state)
+            return
+
+    # обычная логика выбора стиля
+    style = text
     if style not in STYLE_COEFF:
         await message.answer("Выберите стиль из списка ⬆️")
         return
     await state.update_data(style=style)
-    # log_user_action(message.from_user.id, message.from_user.username, f"Выбрал стиль: {style}")
+
     photo = FSInputFile("images/size_example.jpg")
     await message.answer_photo(photo, caption="📏 Выберите примерный размер тату:", reply_markup=size_kb)
     await state.set_state(TattooCalc.waiting_for_size)
 
+
 @router.message(TattooCalc.waiting_for_size)
 async def choose_size(message: types.Message, state: FSMContext):
-    size = message.text.strip()
+    text = (message.text or "").strip()
+
+    # защититься от нажатий меню тоже (аналогично)
+    if text in ("🎨 Галерея тату", "📚 Полезное про тату", "🏙️ Студии и мастера", "💰 Рассчитать тату"):
+        await state.clear()
+        if text == "🎨 Галерея тату":
+            from handlers import gallery as gallery_mod
+            await gallery_mod.gallery(message, state)
+            return
+        if text == "📚 Полезное про тату":
+            from handlers import articles as articles_mod
+            await articles_mod.articles_from_menu(message, state)
+            return
+        if text == "🏙️ Студии и мастера":
+            from handlers import studios as studios_mod
+            await studios_mod.studios_handler(message, state)
+            return
+        if text == "💰 Рассчитать тату":
+            await start_calc(message, state)
+            return
+
+    size = text
     if size not in SIZE_COEFF:
         await message.answer("Выберите размер из списка ⬆️")
         return
     await state.update_data(size=size)
-    # log_user_action(message.from_user.id, message.from_user.username, f"Выбрал размер: {size}")
+
     photo = FSInputFile("images/color_example.jpg")
     await message.answer_photo(photo, caption="🌈 Сколько будет цветов в тату?", reply_markup=colors_kb)
     await state.set_state(TattooCalc.waiting_for_colors)
 
+
 @router.message(TattooCalc.waiting_for_colors)
 async def choose_colors(message: types.Message, state: FSMContext):
-    colors = message.text.strip()
+    text = (message.text or "").strip()
+
+    # тоже обработаем переход в меню
+    if text in ("🎨 Галерея тату", "📚 Полезное про тату", "🏙️ Студии и мастера", "💰 Рассчитать тату"):
+        await state.clear()
+        if text == "🎨 Галерея тату":
+            from handlers import gallery as gallery_mod
+            await gallery_mod.gallery(message, state)
+            return
+        if text == "📚 Полезное про тату":
+            from handlers import articles as articles_mod
+            await articles_mod.articles_from_menu(message, state)
+            return
+        if text == "🏙️ Студии и мастера":
+            from handlers import studios as studios_mod
+            await studios_mod.studios_handler(message, state)
+            return
+        if text == "💰 Рассчитать тату":
+            await start_calc(message, state)
+            return
+
+    colors = text
     if colors not in COLOR_COEFF:
         await message.answer("Выберите вариант из списка ⬆️")
         return
-    await state.update_data(colors=colors)
-    # log_user_action(message.from_user.id, message.from_user.username, f"Выбрал цвета: {colors}")
 
+    await state.update_data(colors=colors)
     data = await state.get_data()
     style = data["style"]
     size = data["size"]
     colors = data["colors"]
 
+    # --- Расчёт стоимости ---
     price = BASE_PRICE * STYLE_COEFF[style] * SIZE_COEFF[size] * COLOR_COEFF[colors]
-    price = int(ceil(price / 500.0) * 500)  # округление до 500 вверх
+    price = int(ceil(price / 500.0) * 500)
 
     await message.answer(
         f"✅ Предварительный расчёт:\n\n"
@@ -140,20 +210,8 @@ async def choose_colors(message: types.Message, state: FSMContext):
         f"📏 Размер: {size}\n"
         f"🌈 Цветов: {colors}\n\n"
         f"💰 Примерная стоимость: <b>{price:,} руб.</b>\n\n"
-        f"Перейдите по ссылке для оформления заказа: https://justdotattoo.ru/order/ 🔥"
-        f"Реальные студии предложат вам свои услуги и точную стоимость",
+        f"Отправьте фото зоны, где планируете тату — и мы уточним цену точнее 🔥",
         parse_mode="HTML",
         reply_markup=final_kb
     )
     await state.clear()
-
-
-# --- Обработка финальных кнопок ---
-@router.message(F.text == "💰 Рассчитать снова")
-async def restart_calc(message: types.Message, state: FSMContext):
-    await start_calc(message, state)
-
-@router.message(F.text == "🖊 Сделать тату")
-async def make_tattoo(message: types.Message):
-    await message.answer("Перейдите по ссылке для оформления заказа: https://justdotattoo.ru/order/")
-
