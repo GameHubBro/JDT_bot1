@@ -10,7 +10,8 @@ async def gallery(message: types.Message):
     log_user_action(message.from_user.id, message.from_user.username, "Перешёл в Галерею")
     await message.answer(
         f'Посмотри крутые работы наших мастеров 👇\n{BASE_URL}/gallery\n'
-        f'И подписывайся на наш канал "Тату идеи" 👉 {IDEAS_URL}'
+        f'И подписывайся на наш канал "Тату идеи" 👇\n{IDEAS_URL}'
     )
+
 
 
