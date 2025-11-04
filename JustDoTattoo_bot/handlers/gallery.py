@@ -13,6 +13,7 @@ async def gallery(message: types.Message, state: FSMContext):
 
     log_user_action(message.from_user.id, message.from_user.username, "Перешёл в Галерею")
     await message.answer(
-        f'Посмотри крутые работы наших мастеров 👇\n{BASE_URL}/gallery\n'
-        f'И подписывайся на наш канал "Тату идеи" 👇\n{IDEAS_URL}'
+        f'Посмотри крутые <a href="{BASE_URL}/gallery">работы наших мастеров</a> 💫\n\n'
+        f'И подписывайся на наш <a href="{IDEAS_URL}">канал «Тату идеи»</a> 💫'
     )
+
