@@ -1,3 +1,4 @@
+# handlers/articles.py
 from aiogram import Router, types
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import Command
@@ -30,13 +31,11 @@ async def show_articles(message: types.Message, state: FSMContext):
     )
 
 # 1️⃣ Срабатывает при нажатии на кнопку "📚 Полезное про тату" (текст)
-@router.message(lambda m: m.text == "📚 Полезное про тату")
+@router.message(lambda m: m.text and m.text.strip() == "📚 Полезное про тату")
 async def articles_from_menu(message: types.Message, state: FSMContext):
     await show_articles(message, state)
 
-# 2️⃣ Подстраховка — если кто-то нажмёт кнопку или введёт команду вручную
+# 2️⃣ Подстраховка — если кто-то введёт команду вручную
 @router.message(Command("articles"))
 async def articles_command(message: types.Message, state: FSMContext):
     await show_articles(message, state)
-
-
