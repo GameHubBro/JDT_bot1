@@ -14,9 +14,11 @@ def _is_studios_text(txt: str | None) -> bool:
 
 @router.message(lambda message: _is_studios_text(message.text))
 async def studios_handler(message: types.Message):
+    await state.clear()
     logging.info(f"[studios] handled message from {message.from_user.id}: {message.text!r}")
     await message.answer(
         "Смотри все студии и мастеров здесь:\n" + STUDIOS_URL
     )
+
 
 
