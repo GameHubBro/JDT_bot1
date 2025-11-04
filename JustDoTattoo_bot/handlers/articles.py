@@ -32,9 +32,12 @@ async def show_articles(message: types.Message, state: FSMContext):
 # 1️⃣ Срабатывает при нажатии на кнопку "📚 Полезное про тату" (текст)
 @router.message(lambda m: m.text == "📚 Полезное про тату")
 async def articles_from_menu(message: types.Message, state: FSMContext):
+    await state.clear()  # ✅ сбрасываем текущее состояние FSM
     await show_articles(message, state)
 
 # 2️⃣ Подстраховка — если кто-то нажмёт кнопку или введёт команду вручную
 @router.message(Command("articles"))
 async def articles_command(message: types.Message, state: FSMContext):
+    await state.clear()  # ✅ сбрасываем текущее состояние FSM
     await show_articles(message, state)
+
