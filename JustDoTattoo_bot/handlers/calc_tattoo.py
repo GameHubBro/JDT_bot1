@@ -215,3 +215,19 @@ async def choose_colors(message: types.Message, state: FSMContext):
         reply_markup=final_kb
     )
     await state.clear()
+
+# --- Повторный расчёт ---
+@router.message(lambda m: m.text and m.text.strip() == "💰 Рассчитать снова")
+async def recalc(message: types.Message, state: FSMContext):
+    await start_calc(message, state)
+
+
+# --- Оформление заказа ---
+@router.message(lambda m: m.text and m.text.strip() == "🖊 Сделать тату")
+async def make_order(message: types.Message, state: FSMContext):
+    await state.clear()
+    await message.answer(
+        "Чтобы оформить заказ, перейди по ссылке 👇\n"
+        "https://justdotattoo.ru/orders/new\n\n"
+        "или просто отправь сюда фото зоны, где хочешь тату, и мы поможем подобрать мастера 🔥"
+    )
