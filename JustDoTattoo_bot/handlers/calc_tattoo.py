@@ -58,7 +58,7 @@ final_kb = ReplyKeyboardMarkup(
 STYLE_COEFF = {
     "Не знаю": 1.0,
     "Надпись": 0.8,
-    "Акварель": 1.1,
+    "Графика": 1.1,
     "Геометрия": 1.2,
     "Абстракция": 1.3,
     "Реализм": 1.6,
@@ -156,3 +156,4 @@ async def restart_calc(message: types.Message, state: FSMContext):
 @router.message(F.text == "🖊 Сделать тату")
 async def make_tattoo(message: types.Message):
     await message.answer("Перейдите по ссылке для оформления заказа: https://justdotattoo.ru/order/")
+
